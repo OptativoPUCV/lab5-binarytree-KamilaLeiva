@@ -169,3 +169,14 @@ Fri 10 May 2024 01:17:36 AM UTC:
  tests:  25|1
 total_score: 60/70
 88c5a7c
+Fri 10 May 2024 01:21:42 AM UTC: 
+ treemap.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:160:11: error: variable ‘resultado’ set but not used [-Werror=unused-but-set-variable]
+  160 |     Pair *resultado = NULL;
+      |           ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+55df306
