@@ -92,52 +92,7 @@ TreeNode * minimum(TreeNode * x){
 
 
 void removeNode(TreeMap * tree, TreeNode* node){
-    if(node->left == NULL && node->right == NULL){
-        if(node->parent == NULL){
-            tree->root = NULL;
-            tree->current = NULL;
-            return;
-        }
-        if(node->parent->left == node){
-            node->parent->left = NULL;
-        }
-        if(node->parent->right == node){
-            node->parent->right = NULL;
-        }
-        tree->current = node->parent;
-        return;
-    }
-    if(node->left == NULL || node->right == NULL){
-        if(node->parent == NULL){
-            if(node->left == NULL){
-                tree->root = node->right;
-                tree->current = node->right;
-                return;
-            }
-        }
-        if(node->parent->left == node){
-            if(node->left == NULL){
-                node->parent->left = node->right;
-            }
-            else{
-                node->parent->left = node->left;
-            }
-        }
-        if(node->parent->right == node){
-            if(node->left == NULL){
-                node->parent->right = node->right;
-            }
-            else{
-                node->parent->right = node->left;
-            }
-        }
-        tree->current = node->parent;
-        return;
-    }
-    TreeNode* aux = minimum(node->right);
-    node->pair->key = aux->pair->key;
-    node->pair->value = aux->pair->value;
-    removeNode(tree,aux);
+    
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
@@ -149,10 +104,22 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 }
 
-
-
-
 Pair * searchTreeMap(TreeMap * tree, void* key) {
+    if (tree == NULL || tree->root == NULL) return NULL;
+    TreeNode* aux = tree->root;
+    while(aux != NULL){
+        if(is_equal(tree,key,aux->pair->key)){
+            tree->current = aux;
+            return aux->pair;
+        }
+        if(tree->lower_than(key,aux->pair->key) == 1){
+            aux = aux->left;
+        }
+        else{
+            aux = aux->right;
+        }
+    }
+    
     return NULL;
 }
 
