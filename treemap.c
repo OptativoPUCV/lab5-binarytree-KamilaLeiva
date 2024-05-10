@@ -107,11 +107,17 @@ void removeNode(TreeMap * tree, TreeNode* node){
         free(node);
     }    
     else{
-        if(node->left != NULL && node->right != NULL){
-            TreeNode* min = minimum(node->right);
-            node->pair->key = min->pair->key;
-            node->pair->value = min->pair->value;
-            removeNode(tree,min);
+        TreeNode* child = (node->left != NULL) ? node->left : node->right;
+        if (node->parent == NULL) {
+            // Si el nodo es la raíz
+            tree->root = child;
+        } else if (node->parent->left == node) {
+            node->parent->left = child;
+        } else {
+            node->parent->right = child;
+        }
+        child->parent = node->parent;
+        free(node);
         }
     }
 }

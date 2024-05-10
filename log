@@ -142,3 +142,12 @@ Fri 10 May 2024 01:14:51 AM UTC:
  tests:  23|2
 total_score: 50/70
 84de2e5
+Fri 10 May 2024 01:15:13 AM UTC: 
+ treemap.c | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
+In file included from test.c:4:
+treemap.c:123:1: error: expected identifier or ‘(’ before ‘}’ token
+  123 | }
+      | ^
+Compilation failed
+fdeac2d
