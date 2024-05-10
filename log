@@ -224,3 +224,9 @@ treemap.c:176:1: error: control reaches end of non-void function [-Werror=return
 cc1: all warnings being treated as errors
 Compilation failed
 7c09fac
+Fri 10 May 2024 01:34:10 AM UTC: 
+ treemap.c | 1 +
+ 1 file changed, 1 insertion(+)
+ tests:  26|1
+total_score: 60/70
+85d75e1
