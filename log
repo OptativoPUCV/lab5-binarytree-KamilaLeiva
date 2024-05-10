@@ -180,3 +180,9 @@ treemap.c:160:11: error: variable ‘resultado’ set but not used [-Werror=unus
 cc1: all warnings being treated as errors
 Compilation failed
 55df306
+Fri 10 May 2024 01:21:51 AM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  25|1
+total_score: 60/70
+0430136
